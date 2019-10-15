@@ -28,33 +28,36 @@ $(document).ready(main)
 
 class CodeAnimation {
     // JQuery Elements used
-    animation_section = $("section#code-animation") // Section used to wrap this Component
-    templates = this.animation_section.children('pre.code') // Code templates, only one is visible at any time
-    links = this.animation_section.children('pre.links').eq(0).children('a') // Clicable links that move around
-    pose = 3 // Current pose number
-    fw = 10 // Font char width
-    fh = 30 // Font char height
-    links_poses = { // [line, char] position of the links for each pose number
-        1: [[0, 0], [1, 6], [2, 6], [3, 9]],
-        2: [[0, 6], [1, 6], [2, 6], [3, 7]],
-        3: [[1, 6], [2, 6], [3, 6], [4, 12]],
-        4: [[1, 3], [2, 3], [3, 3], [4, 3]]
-    }
+    animation_section = $("section.code-animation")
+    animation_center = this.animation_section.find('.center') // Section used to wrap this Component
+    templates = this.animation_center.find('pre.code') // Code templates, only one is visible at any time
+    links = this.animation_center.find('pre.links').eq(0).children('a') // Clicable links that move around
+    pose = 1 // Current pose number
+
+    setIntervalRef: any
 
     constructor() {
         // Set the initial pose ASAP so the elements dont look stacked
-        this.setPose(this.pose, 0, 0)
+        // this.setPose(this.pose, 0, 0)
 
-        // Change the pose every second and render it
-        setInterval(() => {
-            this.setPose(this.pose, 200, 400)
-            this.pose++
-            if (this.pose > 4) this.pose = 1;
-        }, 2000)
+        // Change the pose every second and render it        
+        const startInterval = () => {
+            this.setIntervalRef = setInterval(() => {
+                this.setPose(this.pose, 200, 400)
+                this.pose++
+                if (this.pose > 4) this.pose = 1;
+            }, 2000)
+        }
+        const stopInterval = () => {
+            clearInterval(this.setIntervalRef)
+        }
+
+        startInterval()
+        this.animation_section.hover(stopInterval, startInterval)
     }
 
     setPose(pose: number, code_transition_duration: number, links_transition_duration: number) {
-        const { templates, links_poses, fw, fh } = this
+        const { templates } = this
         // For each code template, fade in the one that matches the current pose, 
         // and fade out the ones that don't
         templates.each(function () {
@@ -65,13 +68,14 @@ class CodeAnimation {
             }
         })
 
-        // For each link, move it to the position where it should be for the current pose
+        // For each link find the matching invisible links in the template,
+        // and move to the same position
         this.links.each(function (i) {
-            if (!links_poses[pose]) return
+            const link_position = templates.eq(pose - 1).children('a').eq(i).position()
             $(this).delay(code_transition_duration / 3).animate(
                 {
-                    top: links_poses[pose][i][0] * fh,
-                    left: links_poses[pose][i][1] * fw
+                    top: link_position.top - 3,
+                    left: link_position.left
                 }, links_transition_duration
             )
         })

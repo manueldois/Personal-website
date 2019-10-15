@@ -9,30 +9,45 @@
 </head>
 
 <body>
-  <h1>Manuel Maldonado</h1>
-  <p>I am the best</p>
-  <code>This is code</code>
-  <section id="code-animation">
-    <pre class="code" pose="1">
+  <main>
+    <section class="profile">
+      <div class="content">
+        <img src="assets/avatar.jpg" class="avatar" alt="" srcset="">
+        <div class="text">
+          <h1>Manuel Maldonado</h1>
+          <p class="job-title">Web Developer</p>
+          <p class="short-bio">
+            As maker at heart, I strive to deliver excellence in all my work.
+            My value proposition is interdisciplinary knowledge - from engineering, to innovation management, to
+            programming.
+          </p>
+          <p class="web-education"> Bootcamper @ Eddisrupt </p>
+        </div>
+      </div>
+    </section>
 
-.then(<a>SeeMySkillset</a> )
-.then(<a>SeeMyLinkedIn</a> )
-.finally(<a>ContactMe</a> )
+    <section class="code-animation">
+      <div class="center">
+        <pre class="code" pose="1">
+<a>SeeMyPortfolio</a>
+.then( <a>SeeMySkillset</a> )
+.then( <a>SeeMyLinkedIn</a> )
+.finally( <a>ContactMe</a> )
     </pre>
-    <pre class="code" pose="2">
+        <pre class="code" pose="2">
 await <a>SeeMyPortfolio</a> 
 await <a>SeeMySkillset</a>
 await <a>SeeMyLinkedIn</a>
 try { <a>ContactMe</a> }
     </pre>
-    <pre class="code" pose="3">
+        <pre class="code" pose="3">
 visitors.pipe(
-  map(<a>SeeMyPortfolio</a> ),
-  map(<a>SeeMySkillset</a> ),
-  map(<a>SeeMyLinkedIn</a> ),
-).subscribe(<a>ContactMe</a> )
+  map( <a>SeeMyPortfolio</a> ),
+  map( <a>SeeMySkillset</a> ),
+  map( <a>SeeMyLinkedIn</a> ),
+).subscribe( <a>ContactMe</a> )
     </pre>
-    <pre class="code" pose="4">
+        <pre class="code" pose="4">
 Promise.all([
   <a>SeeMyPortfolio</a> ,
   <a>SeeMySkillset</a> ,
@@ -40,13 +55,14 @@ Promise.all([
   <a>ContactMe</a>
 ])
     </pre>
-    <pre class="links">
+        <pre class="links">
 <a href="/">SeeMyPortfolio</a>
 <a href="/">SeeMySkillset</a>
 <a href="/">SeeMyLinkedIn</a>
 <a href="/">ContactMe</a>
     </pre>
-  </section>
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>

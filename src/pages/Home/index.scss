@@ -4,33 +4,135 @@ h1 {
   color: #1b1b1b;
 }
 
-section#code-animation {
+body {
+  // No Scroll
+  overflow-x: hidden;
+}
+
+section.profile {
+  background-image: linear-gradient(to bottom right, whitesmoke, darken(whitesmoke, 10%));
+  z-index: 2;
+  padding: 30px 20px;
   position: relative;
-  $font-width: 10px;
-  $transition-duration: 400;
-  $speed: 2000;
+  min-height: calc(100vh - 280px);
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.5);
 
-  > pre {
-    position: absolute;
-    line-height: 30px;
+  > div.content {
+    display: flex;
 
-    &.code {
-      position: absolute;
-      transition: opacity 1s;
-      opacity: 0;
-      
-      > a {
-        visibility: hidden;
-      }
+    > img.avatar {
+      border-radius: 100%;
     }
 
-    &.links {
-      position: absolute;
-      transition: transform 1s;
+    > div.text {
+      display: flex;
+      flex-direction: column;
 
-      > a {
+      > h1 {
+        margin: 0 0 5px 0;
+      }
+
+      > p.job-title {
+        margin: 0 0 5px 0;
+      }
+
+      > p.web-education {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  // Small
+  @media screen and (max-width: 600px) {
+    div.content {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+
+      > img.avatar {
+          width: 150px;
+          max-width: 60vmin;
+      }
+
+      > div.text {
+        margin-top: 20px;
+        align-items: center;
+
+        > p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // Large
+  @media screen and (min-width: 600px) {
+    div.content {
+      width: 100%;
+      max-width: 600px;
+      margin-left: 5vw;
+      margin-top: 5vh;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      > img.avatar {
+        width: 30vmin;
+        height: 30vmin;
+      }
+
+      > div.text {
+        margin-top: 20px;
+
+        > p.short-bio {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+section.code-animation {
+  $background-color: #1b1f22;
+
+  background-color: $background-color;
+  height: 280px;
+  width: 100vw;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  overflow: hidden;
+
+  > div.center {
+    position: relative;
+    width: 300px;
+    height: 200px;
+
+    > pre {
+      position: absolute;
+      line-height: 35px;
+      color: white;
+
+      &.code {
         position: absolute;
-        background-color: white;
+        opacity: 0;
+
+        > a {
+          visibility: hidden;
+        }
+      }
+
+      &.links {
+        position: absolute;
+        transition: transform 1s;
+
+        > a {
+          position: absolute;
+          color: white;
+          background-color: $background-color;
+        }
       }
     }
   }
