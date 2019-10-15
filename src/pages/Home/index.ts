@@ -1,0 +1,83 @@
+import './index.scss'
+import $ from 'jquery'
+import { isMainThread } from 'worker_threads'
+console.log('homepage')
+
+colorCode()
+function colorCode() {
+
+    const all_code = document.getElementsByClassName('code')
+
+    for (let i = 0; i < all_code.length; i++) {
+        const element = <HTMLElement>all_code.item(i);
+        element.innerHTML = colorInnerHTML(element)
+    }
+
+    function colorInnerHTML(el: HTMLElement) {
+        return el.innerHTML
+            .replace(/(await)|(try) /g, (match) => `<span class="syntax">${match} </span>`)
+            .replace(/(then)|(finally)|(pipe)|(map)|(all)|(subscribe)/g, (match) => `<span class="function">${match}</span>`)
+            .replace(/(Promise)/g, (match) => `<span class="class">${match}</span>`)
+            .replace(/(visitors)/g, (match) => `<span class="name">${match}</span>`)
+    }
+}
+
+
+
+$(document).ready(main)
+
+class CodeAnimation {
+    // JQuery Elements used
+    animation_section = $("section#code-animation") // Section used to wrap this Component
+    templates = this.animation_section.children('pre.code') // Code templates, only one is visible at any time
+    links = this.animation_section.children('pre.links').eq(0).children('a') // Clicable links that move around
+    pose = 3 // Current pose number
+    fw = 10 // Font char width
+    fh = 30 // Font char height
+    links_poses = { // [line, char] position of the links for each pose number
+        1: [[0, 0], [1, 6], [2, 6], [3, 9]],
+        2: [[0, 6], [1, 6], [2, 6], [3, 7]],
+        3: [[1, 6], [2, 6], [3, 6], [4, 12]],
+        4: [[1, 3], [2, 3], [3, 3], [4, 3]]
+    }
+
+    constructor() {
+        // Set the initial pose ASAP so the elements dont look stacked
+        this.setPose(this.pose, 0, 0)
+
+        // Change the pose every second and render it
+        setInterval(() => {
+            this.setPose(this.pose, 200, 400)
+            this.pose++
+            if (this.pose > 4) this.pose = 1;
+        }, 2000)
+    }
+
+    setPose(pose: number, code_transition_duration: number, links_transition_duration: number) {
+        const { templates, links_poses, fw, fh } = this
+        // For each code template, fade in the one that matches the current pose, 
+        // and fade out the ones that don't
+        templates.each(function () {
+            if (parseInt($(this).attr('pose')) != pose) {
+                $(this).animate({ opacity: 0 }, code_transition_duration)
+            } else {
+                $(this).animate({ opacity: 1 }, code_transition_duration)
+            }
+        })
+
+        // For each link, move it to the position where it should be for the current pose
+        this.links.each(function (i) {
+            if (!links_poses[pose]) return
+            $(this).delay(code_transition_duration / 3).animate(
+                {
+                    top: links_poses[pose][i][0] * fh,
+                    left: links_poses[pose][i][1] * fw
+                }, links_transition_duration
+            )
+        })
+    }
+}
+
+function main() {
+    const codeAnimation = new CodeAnimation()
+}

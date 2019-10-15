@@ -1,0 +1,37 @@
+@import "../../style.scss";
+
+h1 {
+  color: #1b1b1b;
+}
+
+section#code-animation {
+  position: relative;
+  $font-width: 10px;
+  $transition-duration: 400;
+  $speed: 2000;
+
+  > pre {
+    position: absolute;
+    line-height: 30px;
+
+    &.code {
+      position: absolute;
+      transition: opacity 1s;
+      opacity: 0;
+      
+      > a {
+        visibility: hidden;
+      }
+    }
+
+    &.links {
+      position: absolute;
+      transition: transform 1s;
+
+      > a {
+        position: absolute;
+        background-color: white;
+      }
+    }
+  }
+}
