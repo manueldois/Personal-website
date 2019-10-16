@@ -10,18 +10,16 @@ body {
   box-sizing: border-box;
 }
 
+// Used only to show code
 pre {
   font-family: "IBM Plex Mono", "serif";
 
   a {
-    font-family: inherit;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    text-underline-position: under;
   }
 
   span {
-      font-family: inherit;
+    font-family: inherit;
   }
 
   &.code {
@@ -40,16 +38,131 @@ pre {
   }
 }
 
+// Text
 p,
-span,
-a {
+span {
   font-family: "sans-serif";
 }
 
-a {
-  color: blue;
+h1,
+h2 {
+  font-family: "IBM Plex Sans", "sans-serif";
+  color: #1b1b1b;
 }
 
-h1 {
-  font-family: "IBM Plex Sans", "sans-serif";
+a {
+  font-family: "IBM Plex Mono", "serif";
+  text-underline-position: under;
+  letter-spacing: 2px;
+}
+
+// Navbar
+nav {
+  $color-primary: #1b1b1b;
+
+  position: relative;
+  padding: 20px 30px;
+  display: flex;
+  align-items: flex-end;
+
+  > .logo {
+    margin: 0;
+  }
+
+  > input[name="collapse"] {
+    display: none;
+  }
+
+  > ul.links {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 0 auto;
+    padding: 0;
+
+    > li {
+      margin: 0;
+      padding: 5px 15px;
+
+      > a {
+        position: relative;
+        color: $color-primary;
+        transition: color 1s;
+        text-decoration: none;
+
+        // Custom underline
+        &:after {
+          position: absolute;
+          content: "";
+          height: 1px;
+          width: 100%;
+          background-color: $color-primary;
+          left: 0;
+          bottom: -3px;
+          transition: all 0.5s;
+        }
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        > a {
+          &:after {
+            transform: translateY(3px);
+          }
+        }
+      }
+    }
+  }
+
+  > label[for="in-collapse"] {
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    flex-shrink: 0;
+    > hr {
+      width: 100%;
+      border-color: $color-primary;
+      border-width: 1px;
+      border-bottom: none;
+    }
+  }
+
+  // Collapse
+  /*
+    Hide navbar for 0.5s on start so the script handling
+    it's collapse login has the time to load
+  */
+  animation: waitForScript 0.5s steps(1);
+  @keyframes waitForScript {
+    0% {
+      visibility: hidden;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+
+  &.collapsed {
+    > input[name="collapse"]:checked ~ ul.links {
+      display: block;
+    }
+    > label[for="in-collapse"] {
+      margin-left: auto;
+    }
+    > ul.links {
+      display: none;
+      position: absolute;
+      flex-direction: column;
+      background-color: white;
+      bottom: 0;
+      transform: translateY(100%);
+
+      > li {
+        margin-bottom: 7px;
+      }
+    }
+  }
 }

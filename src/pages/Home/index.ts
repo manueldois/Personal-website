@@ -1,7 +1,8 @@
+import '../../assets/avatar.jpg'
+
 import './index.scss'
 import $ from 'jquery'
-import { isMainThread } from 'worker_threads'
-console.log('homepage')
+
 
 colorCode()
 function colorCode() {
