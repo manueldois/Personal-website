@@ -1,31 +1,13 @@
 import '../../assets/avatar.jpg'
-
+import '../../index.ts'
 import './index.scss'
 import $ from 'jquery'
 
-
-colorCode()
-function colorCode() {
-
-    const all_code = document.getElementsByClassName('code')
-
-    for (let i = 0; i < all_code.length; i++) {
-        const element = <HTMLElement>all_code.item(i);
-        element.innerHTML = colorInnerHTML(element)
-    }
-
-    function colorInnerHTML(el: HTMLElement) {
-        return el.innerHTML
-            .replace(/(await)|(try) /g, (match) => `<span class="syntax">${match} </span>`)
-            .replace(/(then)|(finally)|(pipe)|(map)|(all)|(subscribe)/g, (match) => `<span class="function">${match}</span>`)
-            .replace(/(Promise)/g, (match) => `<span class="class">${match}</span>`)
-            .replace(/(visitors)/g, (match) => `<span class="name">${match}</span>`)
-    }
-}
-
-
-
 $(document).ready(main)
+
+function main() {
+    new CodeAnimation()
+}
 
 class CodeAnimation {
     // JQuery Elements used
@@ -38,8 +20,8 @@ class CodeAnimation {
     setIntervalRef: any
 
     constructor() {
-        // Set the initial pose ASAP so the elements dont look stacked
-        // this.setPose(this.pose, 0, 0)
+        // Color the code
+        this.colorCode()
 
         // Change the pose every second and render it        
         const startInterval = () => {
@@ -55,6 +37,21 @@ class CodeAnimation {
 
         startInterval()
         this.animation_section.hover(stopInterval, startInterval)
+    }
+
+    colorCode() {
+        for (let i = 0; i < this.templates.length; i++) {
+            const element = this.templates.eq(i);
+            element.html(getColoredInnerHTML(element))
+        }
+
+        function getColoredInnerHTML(el: JQuery<HTMLElement>) {
+            return el.html()
+                .replace(/(await)|(try) /g, (match) => `<span class="syntax">${match} </span>`)
+                .replace(/(then)|(finally)|(pipe)|(map)|(all)|(subscribe)/g, (match) => `<span class="function">${match}</span>`)
+                .replace(/(Promise)/g, (match) => `<span class="class">${match}</span>`)
+                .replace(/(visitors)/g, (match) => `<span class="name">${match}</span>`)
+        }
     }
 
     setPose(pose: number, code_transition_duration: number, links_transition_duration: number) {
@@ -83,6 +80,4 @@ class CodeAnimation {
     }
 }
 
-function main() {
-    const codeAnimation = new CodeAnimation()
-}
+

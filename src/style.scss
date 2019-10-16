@@ -40,16 +40,15 @@ pre {
 
 // Text
 p,
-span {
+span,
+small {
   font-family: "sans-serif";
 }
-
 h1,
 h2 {
   font-family: "IBM Plex Sans", "sans-serif";
   color: #1b1b1b;
 }
-
 a {
   font-family: "IBM Plex Mono", "serif";
   text-underline-position: under;
@@ -118,6 +117,7 @@ nav {
   }
 
   > label[for="in-collapse"] {
+    display: none;
     width: 30px;
     height: 30px;
     margin-left: 30px;
@@ -150,6 +150,7 @@ nav {
       display: block;
     }
     > label[for="in-collapse"] {
+      display: block;
       margin-left: auto;
     }
     > ul.links {
