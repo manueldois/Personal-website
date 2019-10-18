@@ -72,7 +72,7 @@ class CodeAnimation {
             const link_position = templates.eq(pose - 1).children('a').eq(i).position()
             $(this).delay(code_transition_duration / 3).animate(
                 {
-                    top: link_position.top - 3,
+                    top: link_position.top,
                     left: link_position.left
                 }, links_transition_duration
             )

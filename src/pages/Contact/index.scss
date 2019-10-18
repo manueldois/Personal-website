@@ -1,2 +1,55 @@
 @import "../../style.scss";
 
+
+
+ul[name="contacts"] {
+  list-style-type: none;
+  max-width: 40rem;
+  margin: auto;
+  padding: 0;
+
+  > li {
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    > img {
+      width: 2rem;
+      height: 2rem;
+      object-fit: contain;
+    }
+
+    > h3 {
+      margin: 0;
+      margin-left: 2rem;
+    }
+
+    > p, a {
+      margin: 0;
+      margin-left: auto;
+      margin-top: 1rem;
+      text-align: right;
+    }
+  }
+
+  @media screen and (max-width: 600px), (min-resolution: 2dppx) and (max-width: 1200px) { 
+    > li {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+      font-size: 1.2em;
+
+      > h3 {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      > p, a {
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  }
+}
