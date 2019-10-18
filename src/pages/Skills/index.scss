@@ -1,0 +1,55 @@
+@import "../../style.scss";
+
+main {
+  padding: 0 30px;
+  margin-top: 50px;
+}
+
+section {
+  margin: 20px 0;
+
+  > details {
+    > summary {
+      font-weight: 600;
+      font-size: 1.3em;
+      white-space: pre-wrap;
+    }
+
+    > div.content {
+      padding: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      // grid-template-columns: 33% 33% 33%;
+
+      > figure {
+        display: block;
+        flex: 1 1;
+        padding: 15px;
+        margin: 8px 8px;
+        min-width: 160px;
+
+        > img {
+          height: 100px;
+          width: 100%;
+          object-fit: contain;
+        }
+
+        > figcaption {
+          text-align: center;
+          font-size: 0.9em;
+          display: none;
+        }
+      }
+    }
+  }
+
+  &[name="management"] {
+    > details > div.content > figure {
+      height: unset;
+      margin-top: 10px;
+      > figcaption {
+        display: block;
+      }
+    }
+  }
+}

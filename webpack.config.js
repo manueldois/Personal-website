@@ -9,6 +9,7 @@ module.exports = {
         home: './src/pages/Home/index.ts',
         portfolio: './src/pages/Portfolio/index.ts',
         skills: './src/pages/Skills/index.ts',
+        contact: './src/pages/Contact/index.ts'
     },
     module: {
         rules: [
@@ -54,6 +55,12 @@ module.exports = {
             inject: 'body',
             filename: 'portfolio.html',
             chunks: ['portfolio']
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/pages/Contact/index.html',
+            inject: 'body',
+            filename: 'contact.html',
+            chunks: ['contact']
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css'

@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap"); // Text
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,600,700&display=swap"); // Code
 
+// Colors
+$black: #1b1b1b;
+
 body {
   margin: 0;
 }
@@ -41,13 +44,15 @@ pre {
 // Text
 p,
 span,
-small {
+small,
+figcaption {
   font-family: "sans-serif";
 }
 h1,
-h2 {
+h2,
+summary {
   font-family: "IBM Plex Sans", "sans-serif";
-  color: #1b1b1b;
+  color: $black;
 }
 a {
   font-family: "IBM Plex Mono", "serif";
@@ -57,7 +62,7 @@ a {
 
 // Navbar
 nav {
-  $color-primary: #1b1b1b;
+  $color-primary: $black;
 
   position: relative;
   padding: 20px 30px;
@@ -160,10 +165,17 @@ nav {
       background-color: white;
       bottom: 0;
       transform: translateY(100%);
+      width: 100vw;
+      padding-bottom: 15px;
 
       > li {
         margin-bottom: 7px;
       }
     }
   }
+}
+
+// Footer
+footer {
+  margin-top: 50px;
 }

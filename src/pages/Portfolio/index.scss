@@ -6,12 +6,10 @@ main {
 
 ul.projects {
   list-style-type: none;
-  margin-top: 50px;
+  margin-top: 30px;
   display: block;
-  margin: auto;
-  padding: 0;
+  padding: 15px;
   width: 100%;
-  max-width: 500px;
 
   > li {
     padding: 5px;
@@ -45,5 +43,10 @@ ul.projects {
         margin-left: auto;
       }
     }
+  }
+
+  @media screen and (min-width: 750px) {
+    display: grid;
+    grid-template-columns: 50% 50%;
   }
 }
