@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -65,6 +66,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[chunkhash].css'
         }),
+        new CopyPlugin([
+            { from: './src/_redirects', to: './' },
+        ]),
     ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
