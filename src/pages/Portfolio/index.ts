@@ -5,6 +5,7 @@ import '../../assets/reactdemo.png'
 import '../../assets/spotdrop.png'
 import '../../assets/TFGOL.png'
 import '../../assets/wasm.png'
+import '../../assets/codepen.png'
 import '../../assets/github-logo.svg'
 
 

@@ -13,7 +13,7 @@ class CodeAnimation {
     // JQuery Elements used
     animation_section = $("section.code-animation")
     animation_center = this.animation_section.find('.center') // Section used to wrap this Component
-    templates = this.animation_center.find('pre.code') // Code templates, only one is visible at any time
+    templates = this.animation_center.find('pre.template') // Code templates, only one is visible at any time
     links = this.animation_center.find('pre.links').eq(0).children('a') // Clicable links that move around
     pose = 1 // Current pose number
 

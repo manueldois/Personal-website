@@ -11,7 +11,8 @@ import '../../assets/sass.svg'
 import '../../assets/git.svg'
 import '../../assets/graphql.svg'
 import '../../assets/google_cloud.svg'
-import '../../assets/linux.svg'
+import '../../assets/ubuntu.svg'
+import '../../assets/nginx.svg'
 import '../../assets/jquery.svg'
 import '../../assets/mongodb.svg'
 import '../../assets/neo4j.svg'
@@ -21,12 +22,13 @@ import '../../assets/typescriptlang.svg'
 import '../../assets/webassembly.svg'
 import '../../assets/webpack.svg'
 
+import '../../assets/creativity.svg'
 import '../../assets/gimp.svg'
 import '../../assets/gravitio.svg'
 import '../../assets/whimsical.png'
 
 import '../../assets/vcw.png'
-import '../../assets/graduation.svg'
+import '../../assets/factory.svg'
 
 
 // Make the figures fade-in when the <details> is opened
@@ -45,6 +47,6 @@ fadeInFiguresInSequence($("main > section > details[open]").find('figure'))
 function fadeInFiguresInSequence(figures: JQuery<HTMLElement>){
     figures.css('opacity',0)
     figures.each(function(i){
-        $(this).delay(i * 300).animate({opacity: 1}, 700)
+        $(this).delay(i * 150).animate({opacity: 1}, 500)
     })
 }
