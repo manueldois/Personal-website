@@ -39,7 +39,7 @@ ul.projects {
       align-items: flex-end;
 
       > a > img {
-        width: 25px;
+        width: 2rem;
       }
 
       > small {
@@ -47,10 +47,6 @@ ul.projects {
       }
     }
   }
-
-  // @media screen and (min-width: 750px) {
-
-  // }
 
   @media screen and (max-width: 600px), (min-resolution: 2dppx) and (max-width: 1200px){
     grid-template-columns: 100%;

@@ -36,7 +36,10 @@ class CodeAnimation {
         }
 
         startInterval()
-        this.animation_section.hover(stopInterval, startInterval)
+
+        // Pauses the animation when user hovers over the animation section
+        // Removed cause users though the code was buggy
+        // this.animation_section.hover(stopInterval, startInterval)
     }
 
     colorCode() {

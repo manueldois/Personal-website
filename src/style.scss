@@ -178,6 +178,7 @@ nav {
       position: absolute;
       flex-direction: column;
       background-color: white;
+      z-index: 3;
       bottom: 0;
       transform: translateY(100%);
       width: 100vw;

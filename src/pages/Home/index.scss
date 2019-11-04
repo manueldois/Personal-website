@@ -41,12 +41,8 @@ section.profile {
         margin: 0 0 5px 0;
       }
 
-      > p.web-education {
+      > p.job {
         margin: 5px 0 0 0;
-      }
-
-      > p.short-bio {
-        // max-width: 300px;
       }
     }
   }
@@ -71,8 +67,8 @@ section.profile {
       > div.text {
         margin-top: 20px;
         align-items: center;
-
-        > p {
+        
+        > p, h1 {
           text-align: center;
         }
       }

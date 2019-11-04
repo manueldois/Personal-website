@@ -15,11 +15,13 @@ section {
       padding: 1.5rem;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
 
       > figure {
         display: block;
         flex: 1 1 10rem;
         margin: 1.5rem;
+        max-width: 20rem;
 
         > img {
           height: 6rem;
@@ -29,7 +31,7 @@ section {
 
         > figcaption {
           display: none;
-          margin-top: 10px;
+          margin-top: 1rem;
           text-align: center;
           font-size: 0.9em;
         }
@@ -40,7 +42,7 @@ section {
   &[name="management"] {
     > details > div.content > figure {
       // height: unset;
-      margin-top: 10px;
+      margin-top: 2rem;
       > figcaption {
         display: block;
       }
@@ -50,7 +52,7 @@ section {
   &[name="design"] {
     > details > div.content > figure {
       // height: unset;
-      margin-top: 10px;
+      margin-top: 2rem;
       > figcaption {
         display: block;
       }
