@@ -69,11 +69,11 @@ a {
   letter-spacing: 2px;
 }
 // Scale base font size for screens with 2 pixel ratio
-@media screen and (min-resolution: 2dppx) {
-  :root {
-    font-size: 2em;
-  }
-}
+// @media screen and (min-resolution: 2dppx) {
+//   :root {
+//     font-size: 2em;
+//   }
+// }
 
 // Navbar
 nav {
