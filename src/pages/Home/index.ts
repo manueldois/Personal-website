@@ -26,9 +26,11 @@ class CodeAnimation {
         // Change the pose every second and render it        
         const startInterval = () => {
             this.setIntervalRef = setInterval(() => {
-                this.setPose(this.pose, 200, 400)
-                this.pose++
-                if (this.pose > 4) this.pose = 1;
+                if (document.hasFocus()) {
+                    this.setPose(this.pose, 200, 400)
+                    this.pose++
+                    if (this.pose > 4) this.pose = 1;
+                }
             }, 2000)
         }
         const stopInterval = () => {
