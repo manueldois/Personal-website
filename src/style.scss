@@ -1,7 +1,7 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap"); // Text
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700&display=swap"); // Title
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,500,600,700&display=swap"); // Code
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap'); // Text
 // Colors
 $black: #1b1b1b;
 
@@ -54,8 +54,9 @@ p,
 span,
 small,
 figcaption {
-  font-family: "sans-serif";
+  font-family: 'Open Sans', sans-serif;
 }
+
 h1,
 h2,
 h3,
@@ -63,17 +64,18 @@ summary {
   font-family: "IBM Plex Sans", "sans-serif";
   color: $black;
 }
+
+summary {
+  font-weight: 600;
+  font-size: 1.3em;
+  white-space: pre-wrap;
+}
+
 a {
   font-family: "IBM Plex Mono", "serif";
   text-underline-position: under;
   letter-spacing: 2px;
 }
-// Scale base font size for screens with 2 pixel ratio
-// @media screen and (min-resolution: 2dppx) {
-//   :root {
-//     font-size: 2em;
-//   }
-// }
 
 // Navbar
 nav {
