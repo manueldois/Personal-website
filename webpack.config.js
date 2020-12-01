@@ -67,7 +67,7 @@ module.exports = {
             filename: '[name].[chunkhash].css'
         }),
         new CopyPlugin([
-            { from: './src/_redirects', to: './' },
+            { from: './src/_redirects', to: '.' },
         ]),
     ],
     resolve: {
