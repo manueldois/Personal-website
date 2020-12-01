@@ -6,8 +6,10 @@ import '../../assets/spotdrop.png'
 import '../../assets/TFGOL.png'
 import '../../assets/altario-test.png'
 import '../../assets/pm-test.png'
+import '../../assets/angular-ssr-auth.png'
 import '../../assets/wasm.png'
 import '../../assets/codepen.png'
 import '../../assets/github-logo.svg'
+
 
 
