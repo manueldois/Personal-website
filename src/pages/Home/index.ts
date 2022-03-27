@@ -1,4 +1,4 @@
-import '../../assets/avatar-sm.jpg'
+import '../../assets/avatar.jpg'
 import '../../index.ts'
 import './index.scss'
 import $ from 'jquery'
