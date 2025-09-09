@@ -1,6 +1,7 @@
 import './index.scss'
 import $ from 'jquery'
 import '../../index.ts'
+import '../../assets/go-logo_blue.svg'
 import '../../assets/angular.svg'
 import '../../assets/css3.svg'
 import '../../assets/esnext.png'
